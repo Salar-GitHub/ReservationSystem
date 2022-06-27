@@ -1,0 +1,48 @@
+﻿
+@model RRS.Data.Restaurant
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Vacancies</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sitting in Model.Sittings)
+        {
+
+            <tr>
+                <td>
+                    @sitting.Name
+                </td>
+                <td>
+                    @sitting.SittingType.Description
+                </td>
+                 <td>
+                    @sitting.Start.ToString("ddd dd-MM-yyyy")
+                </td>
+                <td>
+                    @sitting.Start.ToString("HH:mm")
+                </td>
+                 <td>
+                    @sitting.End.ToString("HH:mm")
+                </td>
+                <td>
+                    @sitting.Vacancies
+                </td>              
+
+                <td>
+                    <a class="btn btn-success" asp-action="ReservationInformation" asp-route-sittingId="@sitting.Id">Book</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

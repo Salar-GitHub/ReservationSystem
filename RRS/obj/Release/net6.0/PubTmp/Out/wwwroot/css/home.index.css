@@ -1,0 +1,14 @@
+﻿html {
+    font-size: 14px;
+    background-color:transparent;
+    /*background-image: url("/images/background_image.jpg");*/
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+}
+h1 {
+    font-family: 'Manrope', sans-serif;
+}
+

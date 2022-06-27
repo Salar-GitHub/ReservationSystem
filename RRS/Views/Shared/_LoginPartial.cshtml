@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole("Member"))
+        {
+            <li class="nav-item">
+                <a id="nav-link" class="nav-link" asp-area="Member" asp-controller="reservations" asp-action="Index"> My reservations </a>
+            </li>
+        }
+        @if (User.IsInRole("Employee")&& !User.IsInRole("Manager"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" id="nav-link" asp-area="Employee" asp-controller="Home" asp-action="Index">Employee Area</a>
+            </li>
+
+        }
+        @if (User.IsInRole("Manager"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" id="nav-link" asp-area="Manager" asp-controller="Home" asp-action="Index">Manager Area</a>
+            </li>
+
+        }
+        <li class="nav-item">
+            <a class="nav-link" id="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><img class="account-icon" src="~/images/account_icon.svg"> @User.Identity?.Name</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area ="" })">
+                <button id="nav-link" type="submit" class="nav-link btn btn-link">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        
+
+        <li class="nav-item">
+            <a class="nav-link" id="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>

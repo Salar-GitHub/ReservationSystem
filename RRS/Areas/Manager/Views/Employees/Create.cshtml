@@ -1,0 +1,72 @@
+﻿@*@model RRS.Data.Employee*@
+
+@model RRS.Areas.Manager.Models.CreateEmployeeVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+<link rel="stylesheet" href="~/css/backend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+<div class="table text-center w-50 m-auto tableHead p-1">
+    <h1>Create</h1>
+
+    <h4>Employee</h4>
+</div>
+<div class="bspacer p-3"></div>
+<div class="table w-50 m-auto tableHead">
+    <div class="col-md-4 mx-auto">
+        <form id="EmployeeFormVal" asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TaxFileNumber" class="control-label"></label>
+                <input asp-for="TaxFileNumber" class="form-control" />
+                <span asp-validation-for="TaxFileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            @*  <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password"class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                </div>*@
+@*            <div class="form-group">
+                <label asp-for="RestaurantId" class="control-label"></label>
+                <select asp-for="RestaurantId" class="form-control" asp-items="ViewBag.RestaurantId">
+                    <option selected value=1></option>
+                </select>
+            </div>*@
+            <div class="form-group text-center">
+                <input type="submit" value="Create" class="btn btn-outline-success m-3" />
+                <a class="btn btn-outline-success m-3" asp-action="Index">Back to List</a>
+            </div>
+            <input type="hidden" asp-for="RestaurantId"  />
+        </form>
+    </div>
+</div>
+
+@*@section Scripts {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="~/js/Validation/manager.employee.create.validate.js"></script>
+}*@

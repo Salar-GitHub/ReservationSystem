@@ -1,0 +1,60 @@
+﻿html {
+    background-image: url("/images/background_image_blur.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    color:white;
+}
+body {
+    background-color:transparent
+    
+}
+.flex-wrap{
+    padding-top:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    justify-items:center;
+}
+.row{
+    padding-top:70px;
+}
+h2{
+    color:white;
+}
+.link {
+    border-radius: 100px;
+    border: 3px solid white;
+    margin: 10px;
+    font-weight: bold;
+    padding:10px;
+    color: white;
+    text-decoration:none;
+}
+.link:hover {
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+}
+.center-wrap{
+    top:200px;
+    display:flex;
+    justify-content:center;
+    justify-items:center;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+}
+.spacer{
+    padding:100px;
+}
+.check{
+    color:white;
+}
+.form-floating{
+    padding-bottom:10px;
+}

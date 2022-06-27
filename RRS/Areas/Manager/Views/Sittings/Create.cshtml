@@ -1,0 +1,118 @@
+﻿@model RRS.Areas.Manager.Models.SittingVm
+
+@{
+    ViewData["Title"] = "Create";
+}
+<link rel="stylesheet" href="~/css/backend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+<div class="table text-center w-50 m-auto tableHead p-1">
+    <h1 class="text-center">Create</h1>
+    <h4 class="text-center">Sitting</h4>
+</div>
+
+<div class="bspacer p-2"></div>
+
+<div class="table w-50 m-auto tableHead ">
+
+    <hr />
+
+    <form id="SittingFormVal" asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="container">
+            <div class="row  mx-auto">
+                <div class="col">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" asp-for=Repeat />
+                        <label class="form-check-label"> Repeat</label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Start" class="control-label">Sitting Start</label>
+                        <input asp-for="Start" class="form-control" />
+                        <span asp-validation-for="Start" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="End" class="control-label"></label>
+                        <input asp-for="End" class="form-control" />
+                        <span asp-validation-for="End" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Capacity" class="control-label"></label>
+                        <input asp-for="Capacity" class="form-control" />
+                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            Private event
+                            <input class="form-check-input" asp-for="IsPrivate" />
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            Closed
+                            <input class="form-check-input" asp-for="IsClosed" />
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SittingTypeId" class="control-label">Type:</label>
+                        <select asp-for=SittingTypeId asp-items=Model.SittingTypes class="form-control">
+                            <option value=""></option>
+                        </select>
+                        <span asp-validation-for="SittingTypeId" class="text-danger"></span>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="col">
+
+
+
+                    <div id="repeat-container" style="display:@(Model.Repeat ? "inline-block" : "none")">
+                        <h3>Select days</h3><hr />
+                        @for (int i = 0; i < Model.Days.Length; i++)
+                        {
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" asp-for="@Model.Days[i]">
+                                <label class="form-check-label">@(((DayOfWeek)i).ToString().Substring(0,3))</label>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label asp-for="NumberOfWeeks" class="control-label">Number of weeks</label>
+                            <input asp-for="NumberOfWeeks" class="form-control" />
+                            <span asp-validation-for="NumberOfWeeks" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" value="Create" class="btn btn-outline-success m-3" />
+            <input type="hidden" asp-for=RestaurantId />
+            <a class="btn btn-outline-success m-3" asp-action="Index">Back to List</a>
+        </div>
+
+    </form>
+
+
+</div>
+
+
+@section Scripts {
+<script src="~/js/manager.sittings.create.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="~/js/Validation/manager.sitting.create.validate.js"></script>
+}
+

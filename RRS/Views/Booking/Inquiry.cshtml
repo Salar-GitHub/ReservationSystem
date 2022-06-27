@@ -1,0 +1,57 @@
+﻿@model RRS.Models.Booking.InquiryVM
+
+@{
+    ViewData["Title"] = "SelectDate";
+}
+<link rel="stylesheet" href="~/css/frontend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+
+
+
+
+<div class="spacer1"></div>
+<div class="wrap text-center w-75 m-auto">
+    
+    <h1>Make your Booking</h1>
+    <hr />
+
+
+
+    <form id="inquiry-form">
+        <div class="mb-3">
+            <label for="date" class="form-label"><b>Date</b></label>
+            <input asp-for=SelectedDate class="form-control-sm" />
+            <label asp-for="Description" class="control-label"><b>Sitting type</b></label>
+            <select asp-for="Description" asp-items="Model.SittingTypes">       
+            </select>
+            <input id="check" type="submit" value="Search" class="btn btn-outline-success" />
+        </div>
+
+
+    </form>
+    <hr />
+
+    <div id="selected-sitting">
+    </div>
+
+
+    <button class="btn btn-outline-success" type="button" id="btnAllSittings" class="btn btn-info mt-3" style="display:none">Show all available sittings </button>
+
+
+    <div id="divAllSittings">
+    </div>
+</div>
+
+
+
+
+
+@section Scripts{
+<script src="~/js/bookingController.js"></script>
+}
+
+
+

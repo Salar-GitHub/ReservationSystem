@@ -1,0 +1,28 @@
+﻿body {
+    background-color: transparent;
+    margin:10px;
+}
+html {
+    background-image: url("/images/background_image_blur.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.wrap{
+    padding:20px;
+    background-color:white;
+    border-radius:15px;
+}
+.spacer1{
+    padding-top:100px;
+}
+.spacer2{
+    padding-top:85px;
+}
+h1 {
+    font-weight: bold;
+    font-family: 'Manrope', sans-serif;
+    color: #37B34A;
+}

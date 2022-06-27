@@ -1,0 +1,47 @@
+﻿@model RRS.Data.Restaurant
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/backend.css" />
+   
+
+<h1 class="text-center">Daily Sittings for @DateTime.Now.ToString("ddd dd-MM-yyyy")</h1>
+<div >
+    <table class="table text-center w-75 m-auto tableHead">
+        <thead class="">
+            <tr>
+                <th>Type</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Vacancies</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="tableBody">
+            @foreach (var sitting in Model.Sittings)
+            {
+
+                <tr>
+                    <td>
+                        @sitting.SittingType.Description
+                    </td>
+
+                    <td>
+                        @sitting.Start.ToString("hh:mm tt")
+                    </td>
+                    <td>
+                        @sitting.End.ToString("hh:mm tt")
+                    </td>
+                    <td>
+                        @sitting.Vacancies
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-success" asp-area="Employee" asp-controller="Reservations"  asp-action="ReservationInformation" asp-route-sittingId="@sitting.Id">Book</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+

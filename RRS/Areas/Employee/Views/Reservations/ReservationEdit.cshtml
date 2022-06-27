@@ -1,0 +1,158 @@
+﻿@model RRS.Areas.Employee.Models.ReservationEditVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="table text-center w-75 m-auto tableHead p-1">
+    <h1>@Model.RestaurantName</h1>
+    <div>
+        <h3><strong>@Model.Reservation.Sitting.Name </strong> @Model.Reservation.Sitting.Start.ToString("dd/MM/yyyy") <strong>Start: </strong>@Model.Reservation.Sitting.Start.ToString("HH:mm") <strong>Until: </strong>@Model.Reservation.Sitting.End.ToString("HH:mm")</h3>
+    </div>
+</div>
+<div class="bspacer p-2"></div>
+
+<div class="table w-75 m-auto tableHead ">
+<form asp-action="ReservationEdit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="container w-100">
+        <div class="row  w-100  mx-auto">
+            <div class="col-3">
+                <div>
+                    <label asp-for=FirstName class="form-label"></label>
+                    <input asp-for=FirstName class="form-control" readonly />
+                </div>
+                <div>
+                    <label asp-for=LastName class="form-label"></label>
+                    <input asp-for=LastName class="form-control" readonly />
+                </div>
+                <div>
+                    <label asp-for=Email class="form-label"></label>
+                    <input asp-for=Email class="form-control" readonly />
+                </div>
+                <div>
+                    <label asp-for=PhoneNumber class="form-label"></label>
+                    <input asp-for=PhoneNumber class="form-control" readonly />
+                </div>
+                <div>
+                    <label asp-for=Reservation.Guest class="form-label"></label>
+                    <input asp-for=Reservation.Guest class="form-control" />
+                    <span asp-validation-for=Reservation.Guest class="text-danger"></span>
+                </div>
+                
+            </div>
+            <div class="col-3">
+                <div>
+                    <label asp-for=Reservation.StartTime class="form-label">Start</label>
+                    <input asp-for=Reservation.StartTime class="form-control" />
+                    <span asp-validation-for=Reservation.StartTime class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for=Reservation.Duration class="form-label">Duration</label>
+                    <input asp-for=Reservation.Duration class="form-control" />
+                    <span asp-validation-for=Reservation.Duration class="text-danger"></span>
+
+                </div>
+                <div class="mb-3">
+                    <label asp-for=Reservation.Note class="form-label"></label>
+                    <textarea asp-for=Reservation.Note class="form-control"></textarea>
+                    <span asp-validation-for=Reservation.Note class="text-danger"></span>
+                </div>
+                <div>
+                    <label id="status" asp-for=Reservation.ReservationStatusId>Status</label>
+                    <select asp-for=Reservation.ReservationStatusId
+                            asp-items=@Model.ReservationStatuses class="form-select">
+                    </select>
+                    <span asp-validation-for=Reservation.ReservationStatusId class="text-danger"></span>
+                </div>
+            </div>
+            <div id="areas" class="col-6">
+                <div>
+                    <lable class="label" asp-For=SelectedArea>Area</lable>
+                    <select asp-for=SelectedArea asp-items=@Model.Areas class="form-select" disabled>
+                        <option value="">Select an area</option>
+                    </select>
+                </div>
+                <div class="container mt-3">
+                    <div class="row">
+                        <div id="main" class="col-4" style="display:none">
+                            @for (int i = 0; i < Model.Tables.Count; i++)
+                            {
+                                @if (Model.Tables[i].AreaId == 1)
+                                {
+                                    <label class="form-check-label">@Model.Tables[i].Name </label>
+                                    <input class="form-check-input" type="checkbox" asp-for=@Model.Tables[i].IsBooked>
+                                    <input type="hidden" asp-for=@Model.Tables[i].Id />
+                                    <input type="hidden" asp-for=@Model.Tables[i].Name />
+                                    <input type="hidden" asp-for=@Model.Tables[i].AreaId />
+                                }
+                            }
+                        </div>
+                        <div id="balcony" class="col-4" style="display:none">
+                            @for (int i = 0; i < Model.Tables.Count; i++)
+                            {
+                                @if (Model.Tables[i].AreaId == 2)
+                                {
+                                    <label class="form-check-label">@Model.Tables[i].Name </label>
+                                    <input class="form-check-input" type="checkbox" asp-for=@Model.Tables[i].IsBooked>
+                                    <input type="hidden" asp-for=@Model.Tables[i].Id />
+                                    <input type="hidden" asp-for=@Model.Tables[i].Name />
+                                    <input type="hidden" asp-for=@Model.Tables[i].AreaId />
+                                }
+                            }
+                        </div>
+                        <div id="outside" class="col-4" style="display:none">
+                            @for (int i = 0; i < Model.Tables.Count; i++)
+                            {
+                                @if (Model.Tables[i].AreaId == 3)
+                                {
+                                    <label class="form-check-label">@Model.Tables[i].Name </label>
+                                    <input class="form-check-input" type="checkbox" asp-for=@Model.Tables[i].IsBooked>
+                                    <input type="hidden" asp-for=@Model.Tables[i].Id />
+                                    <input type="hidden" asp-for=@Model.Tables[i].Name />
+                                    <input type="hidden" asp-for=@Model.Tables[i].AreaId />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div><hr />
+                <h3 id="tablesHeader">Tables</h3>
+                <div id="tables">
+                    @for (int i = 0; i < Model.Reservation.Tables.Count; i++)
+                    {
+                        <label id="table" class="form-check-label">@Model.Reservation.Tables[i].Name </label>
+
+                        <br />
+                    }
+                </div>
+
+
+            </div>
+        <div class="text-center">
+            <button id="save" class="btn btn-outline-success m-3" type="submit">Save</button>
+              
+           @*     <a class="btn btn-outline-success" asp-action="Index">Back to List</a>*@
+              
+           
+        </div>
+        
+        </div>
+        
+    </div>
+
+
+
+    <input type="hidden" asp-for=SittingId />
+    <input type="hidden" asp-for=RestaurantId />
+    <input type="hidden" asp-for=@Model.Reservation.ReservationStatusId />
+    <input type="hidden" asp-for=@Model.Reservation.Sitting.Id />
+    <input type="hidden" asp-for=@Model.Reservation.Id />
+
+
+</form>
+</div>
+
+@section Scripts{
+<script src="~/js/employee.reservations.reservationsedit.js"></script>
+
+}

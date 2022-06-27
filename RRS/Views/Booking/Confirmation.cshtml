@@ -1,0 +1,34 @@
+﻿@model RRS.Models.Booking.ConfirmationVM
+
+@{
+    ViewData["Title"] = "Confirmation";
+}
+<link rel="stylesheet" href="~/css/frontend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+<div class="spacer1"></div>
+<div class="wrap text-center w-50 m-auto">
+    <h1>@Model.RestaurantName</h1>
+    <div>
+        <h3>Reservation receipt</h3>
+        <p>Thank you for your reservation. <br /></p>
+    </div>
+    <div>
+        <p><strong>Reservation code</strong> : @Model.ReservationCode</p>
+        <p><strong>Full name</strong> : @Model.FirstName @Model.LastName</p>
+        <p><strong>Guests</strong> : @Model.Guest</p>
+        <p><strong>Date</strong> : @Model.Start.ToString("ddd dd-MM-yyyy")</p>
+        <p><strong>Start Time</strong> : @Model.StartTime.ToString("hh:mm tt")</p>
+        <p><strong>Note</strong> : @Model.Note</p>
+    </div>
+    @if (!User.Identity.IsAuthenticated)
+    {
+    <a  id="easy-SignUp" asp-action="Register" class="btn btn-outline-success " asp-controller="Account" asp-area="Identity" asp-route-customerId=@Model.CustomerId>Make it easier for next time, Sign up</a>
+        
+    }
+</div>
+
+
+

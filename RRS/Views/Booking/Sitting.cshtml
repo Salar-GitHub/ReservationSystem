@@ -1,0 +1,60 @@
+﻿@model RRS.Data.Restaurant
+
+@{
+    ViewData["Title"] = "Sittings";
+}
+
+<h1>@Model.Name Sitting</h1>
+@{
+    var currentDate = new DateOnly(); 
+}
+@foreach (var sitting in Model.Sittings)
+{
+    var thisDate = DateOnly.FromDateTime(sitting.Start);
+    if(currentDate != thisDate)
+    {
+        currentDate = thisDate;
+        <h3>@sitting.Start.ToShortDateString()</h3>
+
+    }
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Vacancies</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sitting in Model.Sittings)
+        {
+
+            <tr>
+                <td>
+                    @sitting.Name
+                </td>
+                <td>
+                    @sitting.SittingType.Description
+                </td>
+                <td>
+                    @sitting.Start.ToString("HH:mm")
+                </td>
+                 <td>
+                    @sitting.End.ToString("HH:mm")
+                </td>
+                <td>
+                    @sitting.Vacancies
+                </td>              
+
+                <td>
+                    <a asp-action="ResInfo" asp-route-sittingId="@sitting.Id">Select</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

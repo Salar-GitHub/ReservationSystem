@@ -1,0 +1,70 @@
+﻿@model IEnumerable<RRS.Data.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/backend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+<div class="table text-center w-50 m-auto tableHead p-1">
+    <h1>Employee's</h1>
+
+    <a class="btn btn-outline-success m-3" asp-action="Create">Create New</a>
+</div>
+<div class="bspacer p-3"></div>
+<table class="table text-center w-50 m-auto tableHead p-1">
+    <thead>
+        <tr>
+            <th>
+                Tax file number
+            </th>
+            <th>
+                First name
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                email
+            </th>
+            <th>
+                Phone number
+            </th>
+            <th>
+
+            </th>
+           
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxFileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+            </td>
+           
+         
+                
+        </tr>
+}
+    </tbody>
+</table>

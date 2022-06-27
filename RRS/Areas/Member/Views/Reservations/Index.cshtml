@@ -1,0 +1,55 @@
+﻿@model IEnumerable<RRS.Data.Reservation>
+
+@{
+    ViewData["Title"] = "Account Bookings";
+}
+
+<h1>Account Bookings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Origin
+            </th>
+            <th>
+                Guest number
+            </th>
+            <th>
+                Note
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Reservation code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.StartTime.ToString("ddd dd-MM-yyyy")</td>
+                <td>@item.ReservationOrigin.Description</td>
+                <td>@item.Guest</td>
+                <td>@item.Note</td>
+                <td>
+                    <button style="width:100px" type="button" name="status" class="btn btn-primary" disabled data-bs-toggle="button">@item.ReservationStatus.Description</button>
+                </td>
+               
+                <td>@item.ReservationCode</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="~/js/member.reservations.index.js"></script>
+}

@@ -1,0 +1,28 @@
+﻿@model RRS.Models.Booking.ConfirmationVM
+
+@{
+    ViewData["Title"] = "Confirmation";
+}
+<link rel="stylesheet" href="~/css/backend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+<div class="bspacer p-3"></div>
+
+<div class="text-center w-50 m-auto tableHead p-5">
+    <h1>@Model.RestaurantName</h1>
+    <div>
+        <h3>Reservation receipt</h3>
+    </div>
+    <div>
+        <p><strong>Reservation Number</strong> : @Model.ReservationCode</p>
+        <p><strong>Full Name</strong> : @Model.FirstName @Model.LastName</p>
+        <p><strong>Guests</strong> : @Model.Guest</p>
+        <p><strong>Date</strong> : @Model.Start.ToString("ddd dd-MM-yyyy")</p>
+        <p><strong>Start Time</strong> : @Model.StartTime.ToString("hh:mm tt")</p>
+        <p><strong>Note</strong> : @Model.Note</p>
+    
+
+    </div>
+</div>

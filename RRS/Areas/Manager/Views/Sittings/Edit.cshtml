@@ -1,0 +1,76 @@
+﻿@model RRS.Areas.Manager.Models.SittingVm
+
+<link rel="stylesheet" href="~/css/backend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+<div class="table text-center w-50 m-auto tableHead p-1">
+    <h1>Edit</h1>
+    <h4>Sitting</h4>
+</div>
+
+<div class="bspacer p-3"></div>
+
+<div class="table center text-center w-50 m-auto tableHead p-1">
+<hr />
+<div class="row">
+     <div class="col-md-4 mx-auto">
+        <form id="SittingFormVal" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Start" class="control-label"></label>
+                <input asp-for="Start" class="form-control" />
+                <span asp-validation-for="Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="End" class="control-label"></label>
+                <input asp-for="End" class="form-control" />
+                <span asp-validation-for="End" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label"></label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPrivate" /> Private
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsClosed" /> Closed
+                </label>
+            </div>
+          
+            <div class="form-group mb-2">
+                <label asp-for="SittingTypeId" class="control-label">Type:</label>
+                <select asp-for=SittingTypeId asp-items=Model.SittingTypes class="form-control">
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="SittingTypeId" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-outline-success m-3" />
+                <a class="btn btn-outline-success m-3" asp-action="Index">Back to List</a>
+                <input type="hidden" asp-for="RestaurantId" />
+                <input type="hidden" asp-for="SittingId" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+@*<script src="~/js/Validation/manager.sitting.edit.validate.js"></script>*@
+}

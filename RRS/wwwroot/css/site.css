@@ -1,0 +1,216 @@
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: transparent;
+}
+div.container{
+    margin: 0px;
+    padding: 0px;
+    background-color:transparent;
+}
+.index-flex-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-radius: 0 100px 100px 0;
+    position: relative;
+    left:0;
+}
+.index-book-now-button-wrap {
+    padding-top: 99px;
+    padding-bottom: 89px;
+    padding-left: 119px;
+    padding-right: 100px;
+    border-radius: 0 100px 100px 0;
+    background-color: white;
+}
+.index-text {
+    padding-top:20px;
+    padding-left: 140px;
+    background-color:white;
+}
+.book-now-link {
+    text-decoration: none;
+    border-radius: 100px;
+    background-color: white;
+    font-size: 25px;
+    border: 3px solid black;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Manrope', sans-serif;
+}
+.book-now-link:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    text-decoration: none;
+}
+main{
+    background-color:transparent;
+}
+header {
+    background-color: transparent;
+    
+}
+#nav-link {
+    border-radius: 100px;
+    border:3px solid white;
+    margin:10px;
+    font-weight:bold;
+    color:white;
+}
+#nav-link:hover {
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+}
+#nav-link2 {
+    border-radius: 100px;
+    border: 3px solid black;
+    margin: 10px;
+    font-weight: bold;
+    color: black;
+}
+#nav-link2:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+.bean_scene_logo{
+    width:250px;
+    padding-left:40px;
+}
+nav{
+    border-bottom:0px;
+    margin-top:10px;   
+}
+.account-icon{
+    width:20px;
+    padding:0px;
+}
+.spacer{
+    padding:175px;
+}
+footer {
+    background-color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+#nav-index {
+    position: fixed;
+    top: 0;
+    width:100%;
+}
+#nav-index-2 {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    margin-top: 0;
+    padding-top: 17px;
+    border-bottom: 1px solid black;
+    opacity: 0;
+    pointer-events: none;
+}
+.background {
+    top: 0;
+    position: fixed;
+    z-index: -2;
+    width:100%;
+    height:auto;
+}
+.background-blur {
+    top: 0;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+}
+.container{
+    padding-top:20px;
+}
+.footer-index-flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.down-icon{
+    padding-top:1px;
+}
+.iphone-flex {
+
+    bottom: 0;
+    right: -500px;
+    position: absolute;
+    z-index: 4;
+    width: 450px;
+    height: auto;
+}
+.call-icon{
+    height:35px;
+    padding-left:10px;
+
+}
+.call {
+    border-top: 2px solid lightgrey;
+    border-bottom: 2px solid lightgrey;
+}
+.call-info-footer{
+    padding: 20px;
+    color:#37B34A;
+}
+.mobile-app-info{
+    padding:20px;
+    padding-top:0px;
+}
+.footer-header {
+    color: #37B34A;
+    font-weight: bold;
+    font-size:40px;
+}
+.footer-header-3{
+    color:grey;
+    font-size:20px;
+}
+#account-link {
+    border-radius: 100px;
+    border: 3px solid black;
+    margin: 10px;
+    font-weight: bold;
+    color: black;
+    padding-top: 6px;
+    
+}
+#account-text {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding-right: 4px;
+}
+h1 {
+    font-weight: bold;
+}                                                                     
+                                                                      
+.error {
+    color: #a94442;
+    border-color: #ff0000;
+    padding: 1px 20px 1px 20px;
+}

@@ -1,0 +1,77 @@
+﻿@model RRS.Areas.Employee.Models.FilterVm
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/backend.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+<div class="text-center w-75 m-auto tableHead p-1">
+    <h1>Booking List</h1>
+    <hr />
+    <form asp-controller="Reservations" asp-action="Index" method="get">
+        <p>
+            <label asp-for="StatusDescription" class="control-label">Reservation Status</label>
+            <select asp-for="StatusDescription" asp-items="Model.ReservationStatuses">
+                <option value="">All</option>
+            </select>
+            Customer <input type="text" name="id" />
+            Date <input type="date" name="date" />
+            <input class="btn btn-outline-success " type="submit" value="Filter" />
+        </p>
+    </form>
+</div>
+
+
+<div class="bspacer p-3"></div>
+
+
+
+<table class="table text-center w-75 m-auto tableHead">
+    <thead>
+        <tr>
+            @*<th>Id</th>*@
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Guest Number</th>
+            <th>Note</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model.Reservations)
+        {
+
+
+            <tr>
+             @*   <td>@reservation.Id</td>*@
+                <td>@reservation.StartTime.ToString("dd/MM/yyyy")</td>
+                <td>@reservation.Customer.FirstName @reservation.Customer.LastName</td>
+                <td>@reservation.StartTime.ToString("HH:mm")</td>
+                <td>@reservation.EndTime.ToString("HH:mm")</td>
+                <td>@reservation.Guest</td>
+                <td>@reservation.Note</td>
+                <td>
+                    <button style="width:100px" type="button" name="status" class="btn btn-primary" disabled data-bs-toggle="button">@reservation.ReservationStatus.Description</button>
+                </td>
+
+                <td>
+                    <a id="edit" class="btn btn-outline-success " asp-action="ReservationEdit" asp-route-reservationId="@reservation.Id">Edit</a>
+                </td>
+            </tr>
+
+
+
+        }
+    </tbody>
+</table>
+
+
+@section Scripts{
+<script src="~/js/employee.reservations.index.js"></script>
+
+}

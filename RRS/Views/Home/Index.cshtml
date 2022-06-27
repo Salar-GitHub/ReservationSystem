@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="~/css/home.index.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+<div class="index-background">
+
+    <div class="spacer">
+    </div>
+
+    <div class="index-flex-container">
+        <div class="index-text">
+            <h1>Reservations Made Simple</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu nisi quis nulla commodo placerat. <br />
+                Morbi imperdiet, felis id fermentum mollis, <br/>
+            enim sapien dictum augue, in interdum augue ligula at enim.<br/>
+            Sed eget neque laoreet, mollis felis vitae, sagittis magna.
+            Morbi imperdiet, felis id fermentum mollis, <br/>
+            enim sapien dictum augue, in interdum augue ligula at enim.<br/>
+            </p>
+        </div>
+        <div class="index-book-now-button-wrap">
+            <a class="book-now-link" asp-area="" asp-controller="Booking" asp-action="Inquiry">Book Now</a>
+        </div>
+        <div>
+
+        </div>
+    
+    </div>
+    <div class="spacer">
+    </div>
+    <img class="background-blur" src="/images/background_image_blur.jpg"/>
+    <img class="background" src="/images/background_image.jpg" />
+    <div class="iphone-flex">
+        <img class="iphone" src="~/images/iphone.svg"/>
+    </div>
+
+    
+
+</div>
+<footer>
+    <div class="footer-index-flex-container"><img class="down-icon" src="~/images/down_icon.svg" alt="down-icon"/></div>
+    <div class="mobile-app-info">
+        <h1 class="footer-header">Our Mobile App tailored for You!</h1>
+        <h3 class="footer-header-3">*Available on IOS & Android</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu nisi quis nulla commodo placerat. Morbi imperdiet, felis id fermentum mollis, <br/>
+        enim sapien dictum augue, in interdum augue ligula at enim. Sed eget neque laoreet, mollis felis vitae, sagittis magna. Morbi imperdiet, felis id fermentum mollis, <br/>
+        enim sapien dictum augue, in interdum augue ligula at enim.<br/>
+        </p>
+    </div>
+    <div class="call">
+        <h1 class="call-info-footer">Any Questions? We would love to hear from you at 0422 222 222<img class="call-icon" src="~/images/call_icon.svg"/> </h1>
+    </div>
+        
+    <div class="container">
+        &copy; 2022 - RRS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+@section Scripts{
+    <script src="~/js/Index.js"></script>
+}
